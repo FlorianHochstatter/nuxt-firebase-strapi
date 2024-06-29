@@ -11,13 +11,13 @@ export default defineNuxtPlugin((nuxtApp) => {
     };
 
     initializeApp(firebaseConfig);
-
     const auth = getAuth();
-    const firebaseUser = useFirebaseUser();
 
     onAuthStateChanged(auth, (user) => {
-        firebaseUser.value = user;
-
+        /**
+         If you don't want to use Strapi as a backend system,
+         you can also use Firebase or other systems and adapt the API endpoints accordingly.
+         **/
         if (user) {
             const fetchUserData = async () => {
                 try {
@@ -37,7 +37,7 @@ export default defineNuxtPlugin((nuxtApp) => {
             }
             fetchUserData().then(async () => {
                 const user = useStrapiUser()
-                if (user.value.email !== undefined) {
+                if (user.value?.id !== undefined) {
                     const isLoading = useIsLoading();
                     isLoading.value = false
                 }

@@ -5,6 +5,7 @@ const isLoading = useIsLoading()
 <template>
   <div class="application">
     <slot v-if="!isLoading" />
+    <div v-else>Loading Application...</div>
   </div>
 </template>
 

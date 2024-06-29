@@ -3,10 +3,14 @@ definePageMeta({
   middleware: ["auth"],
   layout: "application"
 })
+
+const { fetchUser } = useStrapiAuth()
+const user = await fetchUser()
+
 </script>
 
 <template>
-  <PageDashboardContent />
+  <PageDashboardContent v-model:user="user" />
 </template>
 
 <style lang="scss" scoped></style>

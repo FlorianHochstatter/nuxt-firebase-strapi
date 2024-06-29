@@ -6,6 +6,13 @@ import {
     GoogleAuthProvider,
 } from "firebase/auth";
 
+/**
+ * Creates a new user account with the given email and password.
+ *
+ * @param {string} email - The email for the new user account.
+ * @param {string} password - The password for the new user account.
+ * @returns {Promise} A promise that resolves with the created user object if successful, or rejects with an error object if unsuccessful.
+ */
 export const createUser = async (email: string, password: string) => {
     const auth = getAuth();
     return await createUserWithEmailAndPassword(
@@ -18,6 +25,14 @@ export const createUser = async (email: string, password: string) => {
     });
 };
 
+/**
+ * Sign in a user with email and password.
+ *
+ * @param {string} email - The user's email address.
+ * @param {string} password - The user's password.
+ * @returns {Promise<void>} - A Promise that resolves when the user is signed in successfully.
+ * @throws {Error} - If there is an error during the sign-in process.
+ */
 export const signInUser = async (email: string, password: string) => {
     const auth = getAuth();
     return await signInWithEmailAndPassword(
@@ -30,6 +45,18 @@ export const signInUser = async (email: string, password: string) => {
     });
 };
 
+/**
+ * Authenticates a user using Google sign-in.
+ *
+ * @async
+ * @function googleSignIn
+ * @returns {Promise<void>} - A promise that resolves when the authentication is successful or
+ * rejects with an error if the authentication fails.
+ *
+ * @example
+ * // Usage
+ * await googleSignIn();
+ */
 export const googleSignIn = async () => {
     const auth = getAuth();
     const provider = new GoogleAuthProvider();
@@ -42,6 +69,13 @@ export const googleSignIn = async () => {
     });
 };
 
+/**
+ * Signs out the current user.
+ *
+ * @async
+ * @function signOutUser
+ * @returns {Promise<void>} A promise that resolves when the user is successfully signed out.
+ */
 export const signOutUser = async () => {
     const auth = getAuth();
     return await auth.signOut();

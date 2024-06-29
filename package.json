@@ -1,5 +1,7 @@
 {
-  "name": "nuxt-app",
+  "name": "nuxt-firebase-strapi-app",
+  "author": "Florian B. Hochstatter",
+  "description": "Building a NuxtJS Application with Firebase Authentication and Strapi-Backend",
   "private": true,
   "type": "module",
   "scripts": {
@@ -14,5 +16,8 @@
     "nuxt": "^3.12.2",
     "vue": "^3.4.29",
     "vue-router": "^4.3.3"
+  },
+  "devDependencies": {
+    "@nuxtjs/strapi": "^1.12.0"
   }
 }
