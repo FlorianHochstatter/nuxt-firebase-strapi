@@ -11,12 +11,16 @@ export default defineEventHandler(async (event) => {
     };
 
     try {
+        const body = await readBody(event);
         const data = await $fetch(
             `${secrets.apiUrl}/api/example`,
             {
-                method: "GET",
+                method: "POST",
                 headers: {
                     Authorization: `Bearer ${strapi_jwt}`
+                },
+                body: {
+                    uid: body.uid
                 }
             }
         );
